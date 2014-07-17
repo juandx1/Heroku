@@ -10,6 +10,11 @@ class Cuenta(models.Model):
     )
     tipo=models.CharField(max_length=1, choices=TIPO)
 
+
+class grupo(models.Model):
+    nombre = models.CharField(max_length=100)
+    cuenta=models.ForeignKey(Cuenta)
+
 # Create your models here.
 
 class Usuario_Ministro(models.Model):
