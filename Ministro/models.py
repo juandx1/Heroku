@@ -29,6 +29,8 @@ class Registro(models):
     retiro=models.IntegerField()
 
 
+
+
 # Create your models here.
 
 class Usuario_Ministro(models.Model):
@@ -45,3 +47,17 @@ class Usuario_Ministro(models.Model):
     ciudad = models.CharField(max_length=200, blank=True, null=True)
     pais = models.CharField(max_length=200, blank=True, null=True)
 
+class Campo_Personalizado(models.Model):
+    nombre = models.CharField(max_length=100)
+    iglesia = models.ForeignKey(Iglesia)
+
+class Contenido_Campo_Personalizado(models.Model):
+    contenido = models.CharField(max_length=200)
+    campo = models.ForeignKey(Campo_Personalizado)
+    usuario = models.ForeignKey(Usuario_Ministro)
+
+class Rango(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=500)
+    iglesia = models.ForeignKey(Iglesia)
+    usuario = models.ForeignKey(Usuario_Ministro)
