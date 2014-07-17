@@ -1,0 +1,47 @@
+{% load static from staticfiles %}
+<div class="contenedor">
+    <div class="portada">
+        <div class="cabecera">
+            {% if foto_cover == 1 %}
+                <img class="foto-portada" src="{% static 'images/cover.png' %}"/>
+            {% else %}
+                <img class="foto-portada" src="{% static foto_cover.imagen.url %}"/>
+            {% endif %}
+
+            <div class="back-perfil">
+                <div class="foto-nombre">
+                    <div class="div-foto-perfil">
+                        {% if foto_perfil == 1 %}
+                            <img class="foto-perfil" src="{% static 'images/perfil-hombre.svg' %}"/>
+                        {% else %}
+                            <img class="foto-perfil" src="{% static foto_perfil.imagen.url %}"/>
+                        {% endif %}
+                    </div>
+                    <p class="nombre-perfil">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="opciones">
+            <ul class="nav">
+                <li class="pull-left"><a class="hidden-xs" href="/amigos/">Amigos</a><a class="visible-xs"
+                                                                                        id="menu-amigos"
+                                                                                        href="/amigos/"><img
+                        src="{% static 'iconos/amigos-hover.svg' %}"></a></li>
+                <li class="pull-left"><a class="hidden-xs" href="{% url "albumes" user.id %}">Fotos</a><a
+                        class="visible-xs" id="menu-amigos" href="{% url "albumes" user.id %}"><img
+                        src="{% static 'iconos/fotos-hover.svg' %}"></a></li>
+                <li class="divider"></li>
+                <li class="pull-left"><a class="hidden-xs" href="/eventos">Eventos</a><a class="visible-xs"
+                                                                                         id="menu-amigos"
+                                                                                         href="/eventos"><img
+                        src="{% static 'iconos/eventos-hover.svg' %}"></a></li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+

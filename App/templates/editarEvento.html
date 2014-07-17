@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+{% load static from staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil/perfil.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/evento/eventos.css' %}">
+    <link rel="stylesheet/less" type="text/css" href="{% static 'css/bootstrap-datetimepicker.less' %}">
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.autosize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'js/less.min.js' %}"></script>
+</head>
+<body>
+{% include 'menu.html' %}
+{% include 'portada.html' %}
+<div class="contenedor">
+    <div class="contenido">
+        <div class="contenido-album">
+            <div class="col-sm-9">
+                <div class="barra-eventos row">
+                    <div class="item col-sm-4">
+                        <a href="#">Eventos en los que participé</a>
+                    </div>
+                    <div class="item item-drop col-sm-4">
+                        <a href="#">Mis eventos</a>
+                    </div>
+                    <div class="item col-sm-4">
+                        <a href="#">Eventos pendientes <span class="badge">20</span></a>
+                    </div>
+                </div>
+                <div class="crear-evento">
+                   <form action="{% url "editar_evento" evento.pk %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h1 class="titulo-seccion">Sobre mi evento</h1>
+
+                        <div class="datos-evento">
+                            <div class="grupo-formulario">
+                                <label for="nombre-evento">Nombre del evento</label>
+                                <input type="text" id="nombre-evento" name="nombre" value="{{ evento.nombre }}" >
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="descripcion-evento">Descripción del evento</label>
+                                <textarea id="descripcion-evento" name="descripcion"  >{{ evento.descripcion }}</textarea>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="foto-evento">Foto de perfil del evento</label>
+
+                                <div class="btn btn-warning file">
+                                    <p style="position: absolute">Subir imagen</p>
+                                    <input type="file" id="foto-perfil" name="foto_perfil"style="position:absolute;">
+                                </div>
+
+
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="foto-evento">Foto de cover del evento</label>
+
+                               <div class="btn btn-warning file">
+                                    <p style="position: absolute">Subir imagen</p>
+                                    <input type="file" id="foto-cover" name="foto_cover"style="position:absolute;">
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="grupo-formulario">
+                                <label for="lugar-evento">Lugar</label>
+                                <input type="text" name="lugar" id="lugar-evento"  value=" {{ evento.direccion }}">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="fecha-evento">Fecha inicio</label>
+                                <input type="text" id="fecha-evento" name="fecha_inicio" value=" {{ evento.fecha_inicio }}">
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="fecha-evento_fin">Fecha fin</label>
+                                <input type="text" id="fecha-evento" name="fecha_fin"  value=" {{ evento.fecha_fin }}">
+                            </div>
+                        </div>
+
+
+                        <input type="submit" value="Aceptar" class="btn btn-warning boton-crear">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('textarea').autosize();
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#fecha-evento').datetimepicker({
+            orientation: "top left"
+        });
+    });
+</script>
+</body>
+</html>

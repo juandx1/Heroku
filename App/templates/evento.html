@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Mi Perfil</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil/perfil.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/evento/evento.css' %}">
+</head>
+<body>
+
+{% include "menu.html" %}
+
+<div class="contenedor">
+    <div class="portada">
+        <div class="cabecera">
+            <img class="foto-portada" src="../imagenes/portada.jpg"/>
+        </div>
+        <div class="descripcion-evento">
+            <div>Fecha:</div>
+            <div>Lugar:</div>
+            <div>Nombre:</div>
+            <div>Descripcion:</div>
+        </div>
+        <div class="opciones" style="width: 100%">
+            <ul class="nav">
+                <li class="pull-left"><a class="hidden-xs" href="#">Agregar Amigos</a><a class="visible-xs" id="menu-amigos"
+                                                                                 href="#"><img
+                        src="../iconos/amigos-hover.svg"></a></li>
+                <li class="pull-left"><a class="hidden-xs" href="#">Editar Evento</a><a class="visible-xs" id="menu-amigos"
+                                                                                href="#"><img
+                        src="../iconos/fotos-hover.svg"></a></li>
+                <li class="pull-left"><a class="hidden-xs" href="#">Eliminar Evento</a><a class="visible-xs" id="menu-amigos"
+                                                                                href="#"><img
+                        src="../iconos/fotos-hover.svg"></a></li>
+                <li class="divider"></li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+<section class="comentarios row">
+<div class="col-sm-8">
+    <article class="comentario">
+        <div class="descripcion">
+            <label>Estado</label>
+        </div>
+        <div class="texto-comentario">
+            <textarea class="estado" placeholder="¿Qué estas pensando?"></textarea>
+            <button type="button" class="btn btn-xs">Publicar</button>
+        </div>
+    </article>
+    <article class="comentario">
+        <div class="descripcion">
+            <img class="avatar" src="../imagenes/perfil4.jpg">
+            <a class="autor" href="#">Alejandra Montoya</a>
+
+            <p class="fecha">12h</p>
+
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="texto-comentario">
+            <div>
+                Más seguro que WhatsApp.
+            </div>
+        </div>
+        <div class="comentador">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </div>
+            <img class="avatar" src="../imagenes/perfil5.jpg">
+            <a class="autor" href="#">Daniela Agudelo</a>
+
+            <p class="fecha">12h</p>
+
+            <p class="texto-comment">Interesante asda fadf asdfhsadf usadfyasdfhy asdyufsdfasdhfb iuhasdbfui hasdbfu</p>
+        </div>
+        <div class="comentador">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </div>
+            <img class="avatar" src="../imagenes/perfil5.jpg">
+            <a class="autor" href="#">Daniela Agudelo</a>
+
+            <p class="fecha">12h</p>
+
+            <p class="texto-comment">Interesante asda fadf asdfhsadf usadfyasdfhy asdyufsdfasdhfb iuhasdbfui hasdbfu</p>
+        </div>
+        <div class="comentador">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </div>
+            <img class="avatar" src="../imagenes/perfil5.jpg">
+            <a class="autor" href="#">Daniela Agudelo</a>
+
+            <p class="fecha">12h</p>
+
+            <p class="texto-comment">Interesante asda fadf asdfhsadf usadfyasdfhy asdyufsdfasdhfb iuhasdbfui hasdbfu</p>
+        </div>
+        <div class="comentar">
+            <textarea class="texto-comentario-usuarios" placeholder="Escribir comentario..." rows="0"></textarea>
+            <button type="button" class="btn btn-xs">Comentar</button>
+        </div>
+    </article>
+</div>
+<div class="col-sm-4">
+    <div class="div-amigos hidden-sm hidden-xs">
+        <div class="descripcion">
+            <a href="#">Participantes | </a>
+            <a href="#">Ver todos</a>
+        </div>
+        <div class="amigos row">
+            <div class="col-sm-4">
+                <div class="amigo" id="amigo1">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil1.jpg"/>
+
+                        <div class="nombre" id="nombre1">
+                            <p>Barack Obama</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo2">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil2.jpg"/>
+
+                        <div class="nombre" id="nombre2">
+                            <p>Richard Nixon</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo3">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil3.jpg"/>
+
+                        <div class="nombre" id="nombre3">
+                            <p>George Bush</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="amigo" id="amigo4">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil4.jpg"/>
+
+                        <div class="nombre" id="nombre4">
+                            <p>Alejandra Montoya</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo5">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil5.jpg"/>
+
+                        <div class="nombre" id="nombre5">
+                            <p>Daniela Agudelo</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo6">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil6.jpg"/>
+
+                        <div class="nombre" id="nombre6">
+                            <p>Pablo Hermoso</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="amigo" id="amigo7">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil7.jpg"/>
+
+                        <div class="nombre" id="nombre7">
+                            <p>Oscar Ivan Zurriaga</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo8">
+                    <a href="perfilamigo.html">
+                        <img class="foto-amigo" src="../imagenes/perfil8.jpg"/>
+
+                        <div class="nombre" id="nombre8">
+                            <p>JuanPa Santos</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="amigo" id="amigo9">
+                    <a href="#">
+                        <img class="foto-amigo" src="../imagenes/perfil9.jpg"/>
+
+                        <div class="nombre" id="nombre9">
+                            <p>Canivalito</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('textarea').autosize();
+    });
+</script>
+
+<script type="text/javascript" src="../js/transicion.js"></script>
+
+<script src="../js/image-crop.js"></script>
+
+</body>
+</html>

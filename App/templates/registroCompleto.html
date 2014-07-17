@@ -1,0 +1,32 @@
+<html>
+{% load static from staticfiles %}
+<head>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="trapecio" id="cuadro-contenido">
+
+        <div class="login">
+            <div style="text-align: center">
+                <h1>
+                    BIEVENIDO !!
+                </h1>
+                <div class="parrafo">
+                    Ditam te da la bienvenida a nuestro sistema de amigos online.
+                </div>
+                <div class="parrafo">
+                    Se ha enviado un código de confirmación a tu correo.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+</body>
+</html>

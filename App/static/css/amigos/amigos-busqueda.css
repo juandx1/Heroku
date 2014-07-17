@@ -1,0 +1,78 @@
+.barra-amigos {
+    background-color: #dea03c;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+#busqueda {
+    width: 300px;
+    margin-top: 5px;
+}
+
+.barra-amigos a {
+    line-height: 40px;
+    color: white;
+}
+
+.badge {
+    color: #717171;
+    background-color: white;
+}
+
+.busqueda input[type="search"] {
+    background: url("../../iconos/search-white.png") no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial, Helvetica, Sans-serif;
+    color: dimgray;
+    width: 200px;
+    padding: 4px 15px 3px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 2px;
+}
+
+.busqueda input[type="search"]:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.navbar-form {
+    box-shadow: none;
+}
+
+.foto-animado {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    transition: all 3s ease-in-out;
+    -moz-transition: all 3s;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+}
+
+.borrar {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+}
+
+.borrar a {
+    color: white;
+    font-size: 24px;
+    font-family: 'Segoe UI';
+}
+
+@media screen and (max-width: 770px) {
+
+    .nombre {
+        left: 0%;
+    }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+{% load static from staticfiles %}
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/album/component.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil/perfil.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <script src="{% static 'js/album/modernizr.custom.js' %}"></script>
+
+    <!--[if lte IE 7]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+</head>
+<body onload="imageCrop()">
+{% include 'menu.html' %}
+{% include 'portada.html' %}
+<div class="contenedor">
+
+
+    <div class="contenido">
+        <div class="contenido-album">
+            <div class="titulo-informacion">
+                <img src="{% static 'iconos/fotos-hover.svg' %}">
+
+                <p>MIS <span>ALBUMES</span></p>
+            </div>
+
+            <section class="grid-wrap">
+                <ul class="grid swipe-right" id="grid">
+                    <li class="agregar">
+                        <a href="#" data-toggle="modal" data-target="#myModal">
+                            <img src="{% static 'images/mas.svg' %}">
+                        </a>
+                    </li>
+                    {% for album in Albumes %}
+                        {% if album.fotos|length > 0 %}
+                            <li>
+                                <a href={% url "album" album.album.pk %}>
+{#                                    <div class="div-foto-album">#}
+                                        {% for j in album.fotos %}
+                                            {% if forloop.last %}
+                                                <img src="{% static j.foto.imagen.url %}">
+                                            {% endif %}
+                                        {% endfor %}
+{#                                    </div>#}
+                                    <h3>{{ album.album.nombre }}<br>{{ album.fotos|length }} Fotos</h3>
+                                </a>
+                            </li>
+
+                        {% else %}
+                            <li>
+                                <a href={% url "album" album.album.pk %}>
+                                    <img src="https://es-es.facebook.com/images/photos/empty-album.png"/>
+
+                                    <h3>{{ album.album.nombre }}<br>0 Fotos</h3>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Álbum</h4>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <form id="user_form" class="formulario-album" method="post" enctype="multipart/form-data"
+                          enctype="multipart/form-data" action="{% url "crear_album" %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input class="btn btn-warning btn-sm" type="submit" name="submit" value="Crear"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- /container -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/album/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'js/album/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/album/classie.js' %}"></script>
+<script src="{% static 'js/album/colorfinder-1.1.js ' %} "></script>
+<script src="{% static 'js/album/gridScrollFx.js' %}"></script>
+
+<script>
+    new GridScrollFx(document.getElementById('grid'), {
+        viewportFactor: 0.4
+    });
+</script>
+
+<script src="{% static "js/image-crop.js" %}"></script>
+
+</body>
+
+</html>

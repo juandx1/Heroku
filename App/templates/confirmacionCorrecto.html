@@ -1,0 +1,34 @@
+<html>
+{% load static from staticfiles %}
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="trapecio" id="cuadro-contenido">
+
+        <div class="login">
+            <div style="text-align: center">
+                <h1>
+                    BIEVENIDO !!
+                </h1>
+                <div class="parrafo">
+                    Enhorabuena, su cuenta ha sido verificada y activada en nuestra Red.
+                </div>
+                <div class="parrafo">
+                    Para logearte haz click <a href="{% url 'login' %}">AQUI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+</body>
+</html>

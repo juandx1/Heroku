@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Damion';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Damion'), url("http://themes.googleusercontent.com/static/fonts/damion/v4/qyDz-al48wZmmi6RcQn1Mg.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Champagne et Limousines';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Champagne et Limousines'), url("../fonts/ChampagneLimousines.ttf") format('truetype');
+}
+
+body {
+    background-color: #eaeaea;
+}
+
+label {
+    display: block;
+    font-family: 'Segoe UI';
+    font-weight: normal;
+}
+
+input {
+    width: 170px;
+    text-indent: 7px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+    -webkit-box-shadow: 0 0 12px #808080;
+    -moz-box-shadow: 0 0 12px #808080;
+    box-shadow: 0 0 12px #808080;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+select {
+    text-indent: 7px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 170px;
+    height: 24px;
+}
+
+select:focus {
+    -webkit-box-shadow: 0 0 12px #808080;
+    -moz-box-shadow: 0 0 12px #808080;
+    box-shadow: 0 0 12px #808080;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.contenido-album {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+
+
+.contenedor .contenido .titulo-informacion {
+    background-color: #060D1E;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.contenedor .contenido .titulo-informacion p {
+    display: inline-block;
+    text-align: left;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-family: Segoe UI;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.contenedor .contenido .titulo-informacion img {
+    margin-top: -7px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.contenedor .contenido .titulo-informacion p span {
+    font-size: 20px;
+    line-height: 1em;
+    font-weight: bold;
+}
+
+.contenedor .contenido .row .titulo {
+    margin: 15px 0;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
+.contenedor .contenido .row .contacto {
+    background-color: #e4e3e1;
+    padding: 25px;
+    margin: 0 25px;
+    margin-bottom: 35px;
+    font-family: 'Calibri';
+    font-size: 14px;
+    box-shadow: 5px 7px 18px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor .contenido .row .contacto .campo-input {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    padding-left: 16%;
+}
+
+.contenedor .contenido .row .contacto .campo-input .fecha-nacimiento {
+    white-space: nowrap;
+}
+
+.contenedor .contenido .row .contacto label {
+    color: #979797;
+    width: 25%;
+    text-align: left;
+    float: left;
+}
+
+.contenedor .agregar a {
+    background-color: #dea03c;
+    color: #FFFFFF;
+}
+
+footer {
+    background: #808080;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.modal-header {
+    border-bottom: none;
+    background-color: #060D1E;
+    color: #ffffff;
+    font-family: 'Champagne et Limousines';
+    padding: 10px;
+
+}
+
+.close {
+    opacity: 1;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.close:hover {
+    opacity: 1;
+    color: #cccccc;
+
+}
+
+.formulario textarea {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+    resize: none;
+}
+
+.formulario textarea:focus {
+    -webkit-box-shadow: 0 0 12px #808080;
+    -moz-box-shadow: 0 0 12px #808080;
+    box-shadow: 0 0 12px #808080;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.modal-content {
+    border-radius: 0px;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 305px;
+    }
+}
+
+h4 {
+    font-size: 22px;
+}
+
+@media screen and (max-width: 480px) {
+    .contenedor .portada {
+        display: none;
+    }
+
+    .contenedor .portada .cabecera .back-perfil .foto-nombre .nombre-perfil {
+        font-size: 1em;
+    }
+
+    form.formulario-album {
+        text-align: center;
+    }
+}

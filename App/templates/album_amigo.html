@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+{% load static from staticfiles %}
+<head>
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/album/component.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil/perfil.css' %}">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/album/album.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <script src="{% static 'js/album/modernizr.custom.js' %}"></script>
+
+    <!--[if lte IE 7]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+</head>
+<body onload="imageCrop()">
+{% include 'menu.html' %}
+{% include 'portada_amigo.html' %}
+<div class="contenedor">
+
+    <div class="contenido">
+        <div class="titulo-informacion">
+            <img src="{% static 'iconos/picture.svg' %}">
+
+            <p id="titulo"></p>
+        </div>
+    </div>
+
+
+
+    <section class="grid-wrap">
+        <ul class="grid swipe-right" id="grid">
+            {% for foto in lista.fotos %}
+                <li>
+                    <a href={% url "ver_foto" foto.foto.id %}>
+                        <img src="{% static foto.foto.imagen.url %}">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+</div>
+
+
+
+
+<!-- /container -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/album/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'js/album/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/album/classie.js' %}"></script>
+<script src="{% static 'js/album/colorfinder-1.1.js ' %} "></script>
+<script src="{% static 'js/album/gridScrollFx.js' %}"></script>
+<script>
+    new GridScrollFx(document.getElementById('grid'), {
+        viewportFactor: 0.4
+    });
+</script>
+
+<script>
+    var nombre = "{{ lista.album.nombre }}".split(" ");
+    var texto = "";
+    for (var i = 0; i < nombre.length; i++) {
+        if (i == nombre.length - 1) {
+            texto += "<span>" + nombre[i] + "</span>";
+        } else {
+            texto += nombre[i] + " ";
+        }
+    }
+    $('#titulo').html(texto);
+
+</script>
+
+
+<script src="{% static "js/image-crop.js" %}"></script>
+
+</body>
+
+</html>

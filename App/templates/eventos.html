@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+{% load static from staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/evento/eventos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/evento/perfil.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil/perfil.css' %}">
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body onload="imageCrop()">
+
+{% include 'menu.html' %}
+{% include 'portada.html' %}
+<div class="contenedor">
+    <div class="contenido">
+        <div class="contenido-album">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="barra-eventos row">
+                        <div class="item col-sm-4">
+                            <a href="#">Eventos en los que participé</a>
+                        </div>
+                        <div class="item item-drop col-sm-4">
+                            <a href="#">Mis eventos</a>
+                        </div>
+                        <div class="item col-sm-4">
+                            <a href="#">Eventos pendientes <span class="badge">20</span></a>
+                        </div>
+                    </div>
+                    <ul class="event-list">
+
+                        {% for i in eventos %}
+                        <li>
+                            <time datetime="{{ i.fecha_inicip }}">
+                                <span class="day">{{ i.fecha_inicio.day }}</span>
+                                <span class="month">{{ i.fecha_inicio.month }}</span>
+                                <span class="year">{{ i.fecha_inicio.month }}</span>
+                            </time>
+                            <img alt="Independence Day"
+                                 src="{{ i.foto_perfil.url}}"/>
+
+                            <div class="info">
+                                <h2 class="title">{{ i.nombre }}</h2>
+
+                                <p class="desc">{{ i.descripcion }}</p>
+                                <ul>
+                                    <li style="width:100%;"><a href="#website" style="text-align: right"><img
+                                            src="{% static 'iconos/mas-eventos.svg' %}"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 hidden-sm hidden-xs eventos-pendientes">
+                    <div class="row cabecera">
+                        <img src="{% static 'iconos/eventos-hover.svg' %}">
+                        <h1>Eventos pendientes</h1>
+                    </div>
+                    <div class="row item-pendiente">
+                        <div class="imagen-evento-pendiente">
+                            <img src="{% static foto_perfil.imagen.url %}">
+                        </div>
+                        <div class="contenido-evento-pendiente">
+                            <p class="titulo-evento">
+                                Nombre del Evento
+                            </p>
+
+                            <div class="mas">
+                                <a href="#">
+                                    <img src="{% static 'images/mas.svg' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static "js/image-crop.js" %}"></script>
+
+</body>
+</html>

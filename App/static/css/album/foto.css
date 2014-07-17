@@ -1,0 +1,67 @@
+body {
+  background-color: #fff;
+}
+.container {
+  margin-top: 65px;
+  font-family: 'Segoe UI';
+}
+.container .contenedor-foto {
+  width: 100%;
+  background-color: #eaeaea;
+}
+.container .contenedor-foto .opciones-top ul {
+  background-color: #060d1e;
+}
+.container .contenedor-foto .opciones-top ul li a {
+  color: #fff;
+  outline: none;
+}
+.container .contenedor-foto .opciones-top ul li a:hover,
+.container .contenedor-foto .opciones-top ul li a:focus,
+.container .contenedor-foto .opciones-top ul li a:visited {
+  background-color: #dea03c;
+}
+.container .contenedor-foto .opciones-top ul li a span {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.container .contenedor-foto .div-foto {
+  width: 100%;
+  height: 700px;
+  text-align: center;
+}
+.container .contenedor-foto .opciones-bot ul {
+  background-color: #060d1e;
+}
+.container .contenedor-foto .opciones-bot ul li .dropdown-menu {
+  margin-top: -63px;
+  margin-left: -1px;
+  min-width: 170px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.container .contenedor-foto .opciones-bot ul li a {
+  color: #fff;
+  outline: none;
+}
+.container .contenedor-foto .opciones-bot ul li a:hover,
+.container .contenedor-foto .opciones-bot ul li a:focus,
+.container .contenedor-foto .opciones-bot ul li a:visited {
+  background-color: #dea03c;
+}
+.foto-alto {
+  height: 100%;
+}
+.foto-ancho {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .container .contenedor-foto .div-foto {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container .contenedor-foto .div-foto {
+    height: 300px;
+  }
+}

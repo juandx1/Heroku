@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil/perfilamigo.css' %}">
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.autosize.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+</head>
+<body onload="imageCrop()">
+{% include 'menu.html' %}
+{% include 'portada_amigo.html' %}
+
+
+<section class="comentarios row">
+
+<div class="col-sm-8">
+    <article class="comentario" id="comentar_muro">
+        <div class="descripcion">
+            <label>Estado</label>
+        </div>
+        <div class="texto-comentario">
+            <form id="user_form" class="form-signin span8" method="post"
+                  enctype="multipart/form-data" action="{% url "nuevo_post" %}">
+                {% csrf_token %}
+                {% for field in post_form %}
+                    {{ field.errors }}
+                    {{ field }}
+                {% endfor %}
+
+                <button type="submit" class="btn btn-xs">Publicar</button>
+
+            </form>
+        </div>
+    </article>
+
+    {% for i in lista %}
+        <article class="comentario" id="{{ i.post.id }}">
+            <div class="descripcion">
+                <div class="div-avatar">
+                    {% if i.foto == 1 %}
+                        <img class="avatar" src="{% static 'images/perfil-hombre.svg' %}"/>
+                    {% else %}
+                        <img class="avatar" src="{% static i.foto.imagen.url %}"/>
+                    {% endif %}
+                </div>
+
+                {% if i.post.destino == i.post.fuente %}
+                    <div class="autor-destinatario">
+                        <a class="autor" href="#">{{ i.post.destino.first_name }}</a>
+                    </div>
+                {% else %}
+
+                    <div class="autor-destinatario">
+                        <a class="autor"
+                           href="{% url "ver_usuario" i.post.fuente.pk %}">{{ i.post.fuente.first_name }}</a>
+                        <span class=" hidden-xs glyphicon glyphicon-play"></span>
+                        <a class="autor hidden-xs"
+                           href="{% url "ver_usuario" i.post.destino.pk %}">{{ i.post.destino.first_name }}</a>
+                    </div>
+
+
+                {% endif %}
+
+
+                <p class="fecha">{{ i.post.fecha_publicacion }}</p>
+
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="eliminar-post" href="{% url "eliminar_post" i.post.id %}">Eliminar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="texto-comentario">
+                <div>
+                    {{ i.post.contenido }}
+                </div>
+            </div>
+
+            <div class="comentarios">
+                {% for j in i.comentarios %}
+
+                    <div class="comentador" id="{{ j.comentario.id }}">
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="elimi
+                                nar-comentario" href="{% url "eliminar_comentario" j.comentario.id %}">Eliminar</a></li>
+                            </ul>
+                        </div>
+                        <div class="div-avatar">
+                            {% if j.foto == 1 %}
+                                <img class="avatar" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="avatar" src="{% static j.foto.imagen.url %}"/>
+                            {% endif %}
+                        </div>
+
+                        <a class="autor" href="#">{{ j.comentario.usuario.first_name }}</a>
+
+                        <p class="fecha">{{ j.comentario.fecha_publicacion }}</p>
+
+                        <p class="texto-comment">{{ j.comentario.contenido }}</p>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="comentar">
+                <form id="coment_form" class="form-signin span8" method="post"
+                      enctype="multipart/form-data" action="{% url "nuevo_comentario" %}">
+                    {% csrf_token %}
+                    {% for field in  i.form %}
+                        {{ field.errors }}
+                        {{ field }}
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-xs">Comentar</button>
+                </form>
+
+            </div>
+        </article>
+    {% endfor %}
+
+
+    {{ lista.number }}
+    <input id="page" name="id" type="hidden" value="2">
+    <input id="usuario" name="id" type="hidden" value="{{ usuario.pk }}">
+
+    <div id="nuevo">
+
+    </div>
+    <button type="button" class="btn btn-xs" id="cargar">Cargar</button>
+
+
+</div>
+
+<div class="col-sm-4">
+
+<div class="div-sobre-mi hidden-sm hidden-xs">
+    <div class="descripcion">
+        Sobre mi...
+    </div>
+    <div class="info">
+        Fecha de Nacimiento:
+        <p>{{ usuario.fecha_nacimiento }}</p>
+    </div>
+    <div class="info">
+        Género:
+        {% if  usuario.genero == 'M' %}
+            <p>Masculino</p>
+        {% else %}
+            <p>Femenino</p>
+        {% endif %}
+    </div>
+    <div class="info">
+        País:
+        <p>{{ usuario.pais }}</p>
+    </div>
+</div>
+
+{% if fotos|length > 0 %}
+    <div class="div-fotos hidden-sm hidden-xs">
+        <div class="descripcion">
+            <a href="#">Fotos</a>
+        </div>
+
+
+        <div class="fotos row">
+
+            <div class="col-sm-6">
+
+                <div class="foto">
+                    <a href="{% url "ver_foto" fotos.0.pk %}"><img class="ultima-foto"
+                                                                   src="{% static fotos.0.imagen.url %}"/></a>
+                </div>
+
+                {% if fotos|length > 1 %}
+                    <div class="foto">
+                        <a href="{% url "ver_foto" fotos.1.pk %}"><img class="ultima-foto"
+                                                                       src="{% static fotos.1.imagen.url %}"/></a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-sm-6">
+                {% if fotos|length > 2 %}
+                    <div class="foto">
+                        <a href="{% url "ver_foto" fotos.2.pk %}"><img class="ultima-foto"
+                                                                       src="{% static fotos.2.imagen.url %}"/></a>
+                    </div>
+                {% endif %}
+                {% if fotos|length > 3 %}
+                    <div class="foto">
+                        <a href="{% url "ver_foto" fotos.3.pk %}"><img class="ultima-foto"
+                                                                       src="{% static fotos.3.imagen.url %}"/></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if amigos|length > 0 %}
+    <div class="div-amigos hidden-sm hidden-xs">
+        <div class="descripcion">
+            <a href="#">Amigos</a>
+        </div>
+        <div class="amigos row">
+
+            <div class="col-sm-4">
+                <div class="amigo" id="amigo1">
+                    <a href="{% url "ver_usuario" amigos.0.amigo.id %}">
+
+                        {% if amigos.0.foto == 1 %}
+                            <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                        {% else %}
+                            <img class="foto-amigo" src="{% static amigos.0.foto.imagen.url %}"/>
+                        {% endif %}
+                        <div class="nombre" id="nombre1">
+                            <p>{{ amigos.0.amigo.user.first_name }}</p>
+                        </div>
+                    </a>
+                </div>
+
+                {% if amigos|length > 3 %}
+                    <div class="amigo" id="amigo2">
+                        <a href="{% url "ver_usuario" amigos.3.amigo.id %}">
+
+                            {% if amigos.3.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.3.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre2">
+                                <p>{{ amigos.3.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if amigos|length > 6 %}
+                    <div class="amigo" id="amigo3">
+                        <a href="{% url "ver_usuario" amigos.6.amigo.id %}">
+
+                            {% if amigos.6.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.6.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre3">
+                                <p>{{ amigos.6.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <div class="col-sm-4">
+                {% if amigos|length > 1 %}
+
+                    <div class="amigo" id="amigo4">
+                        <a href="{% url "ver_usuario" amigos.1.amigo.id %}">
+
+                            {% if amigos.1.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.1.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre4">
+                                <p>{{ amigos.1.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if amigos|length > 4 %}
+                    <div class="amigo" id="amigo5">
+                        <a href="{% url "ver_usuario" amigos.4.amigo.id %}">
+
+                            {% if amigos.4.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.4.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre5">
+                                <p>{{ amigos.4.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if amigos|length > 7 %}
+                    <div class="amigo" id="amigo6">
+                        <a href="{% url "ver_usuario" amigos.7.amigo.id %}">
+
+                            {% if amigos.7.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.7.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre6">
+                                <p>{{ amigos.7.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-sm-4">
+
+                {% if amigos|length > 2 %}
+                    <div class="amigo" id="amigo7">
+                        <a href="{% url "ver_usuario" amigos.2.amigo.id %}">
+
+                            {% if amigos.2.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.2.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre7">
+                                <p>{{ amigos.2.amigo.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if amigos|length > 5 %}
+                    <div class="amigo" id="amigo8">
+                        <a href="{% url "ver_usuario" amigos.5.amigo.id %}">
+                            {% if amigos.5.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.5.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre1">
+                                <p>{{ amigos.5.amigo.destino.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if amigos|length > 8 %}
+                    <div class="amigo" id="amigo9">
+                        <a href="{% url "ver_usuario" amigos.8.amigo.id %}">
+
+                            {% if amigos.8.foto == 1 %}
+                                <img class="foto-amigo" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="foto-amigo" src="{% static amigos.8.foto.imagen.url %}"/>
+                            {% endif %}
+                            <div class="nombre" id="nombre1">
+                                <p>{{ amigos.8.amigo.destino.user.first_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+</div>
+
+</section>
+
+
+<script src="{% static "js/image-crop.js" %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('textarea').autosize();
+    });
+</script>
+<script type="text/javascript" src="{% static 'js/transicion.js' %}">
+</script>
+</body>
+</html>

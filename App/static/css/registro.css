@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Champagne et Limousines';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Champagne et Limousines'), url("../fonts/ChampagneLimousines.ttf") format('truetype');
+}
+
+body {
+    background-image: url("../images/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+input {
+    margin: 20px auto;
+    text-align: left;
+    outline: none;
+    text-indent: 3px;
+}
+
+a {
+    color: #3070b3;
+}
+
+a:hover {
+    color: #3f93eb;
+}
+
+.container {
+    text-align: center;
+    z-index: 0;
+}
+
+.container .trapecio {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #000;
+    padding: 20px 55px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container .trapecio .login {
+    top: 18%;
+    left: 29%;
+}
+
+.container .trapecio .login .foto-perfil {
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+
+.container .trapecio .login .boton-login {
+    margin-bottom: 20px;
+    background-color: #3070b3;
+    display: block;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 40px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #000;
+    width: auto;
+}
+
+.container .trapecio .login .boton-login:hover {
+    background-color: #3f93eb;
+}
+
+.container .trapecio .login .registro {
+    color: #fff;
+}
+
+.container .trapecio .login .titulo {
+    color: #fff;
+    font-family: 'champagne et limousines';
+    font-size: 22px;
+    text-align: left;
+}
+
+.container .trapecio .registro .nombre-izquierda {
+    width: 45%;
+    float: left;
+}
+
+.container .trapecio .registro .nombre-derecha {
+    width: 45%;
+    float: right;
+}
+
+.login-email {
+    width: auto !important;
+}
+
+.container .trapecio .registro input, select{
+    margin: 10px auto;
+    width: 100%;
+}
+
+.contenido-registro {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-family: 'Segoe UI';
+    color: #626363;
+    opacity: 1;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-family: 'Segoe UI';
+    color: #626363;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-family: 'Segoe UI';
+    color: #626363;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-family: 'Segoe UI';
+    color: #626363;
+    opacity: 1;
+}
+
+.formulario-registro {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.container .trapecio .login h1 {
+    font-size: 27px;
+    color: #eccdb2;
+    font-family: 'Champagne et Limousines';
+    margin-bottom: 35px;
+}
+
+.container .trapecio .login .parrafo {
+    color: #ffffff;
+    font-family: 'Champagne et Limousines';
+    margin-bottom: 35px;
+    text-align: left;
+    font-size: 22px;
+    padding-left: 15px;
+}
+
+.logo img {
+    width: 50%;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 480px) {
+    .container .trapecio {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .logo img {
+        width: 100%;
+    }
+
+    .formulario-registro {
+        width: 100%;
+    }
+
+    .container .trapecio .registro .nombre-izquierda {
+        width: 100%;
+        float: none;
+    }
+
+    .container .trapecio .registro .nombre-derecha {
+        width: 100%;
+        float: none;
+    }
+
+    body .trapecio,
+    .container .trapecio {
+        background-image: none;
+    }
+
+    body .trapecio .login,
+    .container .trapecio .login {
+        top: 16%;
+        left: 23%;
+    }
+
+    body .trapecio .imagen-login,
+    .container .trapecio .imagen-login {
+        visibility: hidden;
+    }
+}

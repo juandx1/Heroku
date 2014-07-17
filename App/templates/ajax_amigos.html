@@ -1,0 +1,63 @@
+{% load static from staticfiles %}
+<div class="columna-solicitudes col-lg-6">
+    <ul class="nav-solicitudes nav nav-stacked">
+
+        {% for i in izquierda %}
+            <li>
+                <div class="solicitud">
+
+                    <div class="div-avatar">
+                        <a href="{% url "ver_usuario" i.contacto.destino.pk %}">
+                            <img class="img-avatar" src="{{ i.foto.imagen.url }}" alt="">
+                        </a>
+                    </div>
+
+                    <a href="{% url "ver_usuario" i.contacto.destino.pk %}">
+                        <p class="nombre">{{ i.contacto.destino.user.first_name }} {{ i.contacto.destino.user.last_name }}</p>
+                    </a>
+
+                    <a class="rechazar hidden-xs" href="{% url "eliminar_amigo" i.contacto.destino.pk %}">
+                        Eliminar
+                        <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+
+                    <a class="rechazar visible-xs" href="{% url "eliminar_amigo" i.contacto.destino.pk %}">
+                        <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="columna-solicitudes col-lg-6">
+    <ul class="nav-solicitudes nav nav-stacked">
+
+        {% for i in derecha %}
+            <li>
+                <div class="solicitud">
+                    <div class="div-avatar">
+                        <a href="{% url "ver_usuario" i.contacto.destino.pk %}">
+                            <img class="img-avatar" src="{{ i.foto.imagen.url }}" alt="">
+                        </a>
+                    </div>
+                    <a href="{% url "ver_usuario" i.contacto.destino.pk %}">
+                        <p class="nombre">{{ i.contacto.destino.user.first_name }} {{ i.contacto.destino.user.last_name }}</p>
+                    </a>
+                    <a class="rechazar hidden-xs" href="{% url "eliminar_amigo" i.contacto.destino.pk %}">
+                        Eliminar
+                        <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+
+                    <a class="rechazar visible-xs" href="{% url "eliminar_amigo" i.contacto.destino.pk %}">
+                        <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+
+                </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
+
+<script src="{% static "js/image-crop-ajax.js" %}"></script>

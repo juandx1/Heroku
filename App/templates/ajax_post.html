@@ -1,0 +1,84 @@
+{% load static from staticfiles %}
+
+    {% for i in lista %}
+
+        <article class="comentario" id="{{ i.post.id }}">
+            <div class="descripcion">
+                <div class="div-avatar">
+                    {% if i.foto == 1 %}
+                        <img class="avatar" src="{% static 'images/perfil-hombre.svg' %}"/>
+                    {% else %}
+                        <img class="avatar" src="{% static i.foto.imagen.url %}"/>
+                    {% endif %}
+                </div>
+                <div class="autor-destinatario">
+                    <a class="autor"
+                       href="{% url "ver_usuario" i.post.fuente.pk %}">{{ i.post.fuente.first_name }}</a>
+                </div>
+
+
+                <p class="fecha">{{ i.post.fecha_publicacion }}</p>
+
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="eliminar-post" href="{% url "eliminar_post" i.post.id %}">Eliminar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="texto-comentario">
+                <div>
+                    {{ i.post.contenido }}
+                </div>
+            </div>
+            <div class="comentarios">
+                {% for j in i.comentarios %}
+
+                    <div class="comentador" id="{{ j.comentario.id }}">
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="eliminar-comentario"
+                                       href="{% url "eliminar_comentario" j.comentario.id %}">Eliminar</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="div-avatar">
+                            {% if j.foto == 1 %}
+                                <img class="avatar" src="{% static 'images/perfil-hombre.svg' %}"/>
+                            {% else %}
+                                <img class="avatar" src="{% static j.foto.imagen.url %}"/>
+                            {% endif %}
+                        </div>
+
+
+                        <a class="autor" href="#">{{ j.comentario.usuario.first_name }}</a>
+
+                        <p class="fecha">{{ j.comentario.fecha_publicacion }}</p>
+
+                        <p class="texto-comment">{{ j.comentario.contenido }}</p>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="comentar">
+                <form id="coment_form" class="form-signin span8" method="post"
+                      enctype="multipart/form-data" action="{% url "nuevo_comentario" %}">
+                    {% csrf_token %}
+                    {% for field in  i.form %}
+                        {{ field.errors }}
+                        {{ field }}
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-xs">Comentar</button>
+                </form>
+
+            </div>
+        </article>
+
+    {% endfor %}
+<script src="{% static "js/image-crop-ajax.js" %}"></script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Foto</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/album/foto.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+<body onload="cargarFotoSizer();">
+{% include 'menu.html' %}
+<div class="container">
+    <div class="contenedor-foto">
+        <div class="opciones-top">
+            <ul class="nav">
+                <li><a class="pull-left" href="{% url 'album' paginator.0.album.id %}">Volver al Albúm</a></li>
+                {% if paginator.has_next %}
+                    <li><a class="pull-right visible-xs" href="?page={{ paginator.next_page_number }}"><span
+                        class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                    <a class="pull-right hidden-xs" href="?page={{ paginator.next_page_number }}">Siguiente</a>
+                {% endif %}
+
+                {% if paginator.has_previous %}
+                    <li><a class="pull-right visible-xs" href="?page={{ paginator.previous_page_number }}"><span
+                            class="glyphicon glyphicon-circle-arrow-left"></span></a><a class="pull-right hidden-xs"
+                                                                                        href="?page={{ paginator.previous_page_number }}">Anterior</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="div-foto">
+            <img id="foto" src="{% static paginator.0.imagen.url %}">
+        </div>
+
+        <div class="opciones-bot">
+            <ul class="nav">
+                <li>
+                    <a class="pull-left" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Establecer como...
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a href="{% url "establecer_foto_perfil" paginator.0.id %}" role="menuitem"
+                                                   tabindex="-1">Foto de Perfil</a>
+                        </li>
+                        <li role="presentation"><a href="{% url "establecer_foto_cover" paginator.0.id %}" role="menuitem" tabindex="-1">Foto de Portada</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="pull-right visible-xs" href="{% url "eliminar_foto" paginator.0.id %}"><span class="glyphicon glyphicon-remove"></span></a><a
+                        class="pull-right hidden-xs" href="{% url "eliminar_foto" paginator.0.id %}">Eliminar</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/foto.js' %}"></script>
+
+</body>
+</html>

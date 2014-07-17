@@ -1,0 +1,80 @@
+{% load static from staticfiles %}
+<div class="contenedor">
+    <div class="portada">
+        <div class="cabecera">
+            {% if foto_cover == 1 %}
+                <img class="foto-portada" src="{% static 'images/cover.png' %}"/>
+            {% else %}
+                <img class="foto-portada" src="{% static foto_cover.imagen.url %}"/>
+            {% endif %}
+
+
+            <div class="back-perfil">
+                <div class="foto-nombre">
+
+                    <div class="div-foto-perfil">
+                        {% if foto_perfil == 1 %}
+                            <img class="foto-perfil" src="{% static 'images/perfil-hombre.svg' %}"/>
+                        {% else %}
+                            <img class="foto-perfil" src="{% static foto_perfil.imagen.url %}"/>
+                        {% endif %}
+                    </div>
+
+                    <p class="nombre-perfil">{{ usuario.user.first_name }} {{ usuario.user.last_name }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="opciones">
+            <ul class="nav">
+                <li class="pull-left"><a class="hidden-xs" href="{% url "ver_amigos" usuario.user.id %}">Amigos</a><a
+                        class="visible-xs" id="menu-amigos" href="#"><img src="{% static 'iconos/amigos-hover.svg' %}"></a>
+                </li>
+                <li class="pull-left"><a class="hidden-xs" href="{% url "ver_albumes" usuario.user.id %}">Fotos</a><a
+                        class="visible-xs" id="menu-amigos" href="{% url "ver_albumes" usuario.user.id %}"><img
+                        src="{% static 'iconos/fotos-hover.svg' %}"></a></li>
+                <li class="divider"></li>
+                <li class="pull-left"><a class="hidden-xs" href="#">Eventos</a><a class="visible-xs" id="menu-amigos"
+                                                                                  href="#"><img
+                        src="{% static 'iconos/eventos-hover.svg' %}"></a></li>
+                <li class="divider"></li>
+                <li class="pull-left"><a class="hidden-xs" href="#" data-toggle="modal"
+                                         data-target="#myModal">Mensaje</a><a class="visible-xs" href="#"
+                                                                              data-toggle="modal"
+                                                                              data-target="#myModal"><img
+                        src="{% static 'iconos/mensajes-hover.svg' %}"></a></li>
+                <li class="divider"></li>
+                <li class="pull-right"><a class="hidden-xs" href="#">Eliminar</a><a class="visible-xs" id="menu-amigos"
+                                                                                    href="#"><img
+                        src="{% static 'iconos/eliminar.svg' %}"></a></li>
+                <li class="divider"></li>
+
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Enviar Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <form action="">
+                        <input type="hidden" value="idUsuario">
+                        <label for="asunto">Asunto</label>
+                        <input id="asunto" type="text" placeholder="">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" placeholder="Escriba aquí su mensaje..."></textarea>
+                        <input type="submit" class="btn btn-warning btn-sm" value="Enviar" style="margin-top: 10px">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

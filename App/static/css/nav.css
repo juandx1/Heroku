@@ -1,0 +1,75 @@
+.navbar {
+  -webkit-transform: translate3d(0, 0, 0);
+  background: #060d1e;
+  border: 0px solid transparent;
+  border-radius: 0;
+  font-family: Calibri;
+  left: 0;
+  margin-bottom: 0px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+}
+.navbar #logo {
+  height: auto;
+}
+.navbar #logo img {
+  width: 80px;
+}
+.navbar a {
+  color: #fff;
+  font-size: 1em;
+  text-shadow: 0px 1px #000;
+}
+.navbar a:hover {
+  background: #dea03c !important;
+}
+.navbar a img {
+  width: 25px;
+}
+.navbar #solicitudes a:focus {
+  background-color: #dea03c;
+}
+.navbar #solicitudes ul {
+  background-color: #060d1e;
+  z-index: 1020;
+}
+.navbar #solicitudes ul li a {
+  color: #fff;
+}
+.navbar #solicitudes span {
+  background-color: #fff;
+  color: #060d1e;
+  float: right;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.navbar #mensajes span {
+  background-color: #fff;
+  color: #060d1e;
+  float: right;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.navbar #cerrar-sesion span {
+  margin-right: 4px;
+  margin-left: 6px;
+  top: 2px;
+}
+.navbar .divider {
+  height: 1px;
+  background: #fff;
+}
+@media screen and (max-width: 480px) {
+  .navbar {
+    position: static;
+    background: rgba(6,13,30,0.9);
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-nav li a {
+    padding: 15px 5px 15px 5px;
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% load static from staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+Estas personas quieren ser tu amigo
+
+
+{% for i in contactos %}
+
+    {{ i.contacto.fuente.user.first_name }}
+    {{ i.contacto.pk}}
+    {% if i.foto == 1  %}
+        <img class="avatar" src="{% static 'images/perfil-hombre.svg'%}"/>
+    {% else %}
+        <img class="avatar" src="{% static i.foto.imagen.url %}" />
+    {% endif %}
+    <a href="{% url "eliminar_contacto" i.contacto.id%}">Rechazar</a>
+    <a href="{% url "aceptar_amigo" i.contacto.fuente.id%}">Aceptar</a>
+
+
+{% endfor %}
+</body>
+</html>

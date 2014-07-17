@@ -1,0 +1,61 @@
+<html>
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="trapecio">
+        {% if fallo == 1 %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <strong>Error!</strong> Combinacion de usuario y contraseña incorrecto.
+            </div>
+        {% elif fallo == 2 %}
+             <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <strong>Atención!</strong> Tu cuenta aun no ha sido activada, revisa tu correo en busca del link de confirmación
+            </div>
+        {% endif %}
+
+        <div class="login">
+            <form id="login_form" method="post">
+
+                {% csrf_token %}
+
+                <img class="foto-perfil" src="{% static 'images/perfil-hombre.svg' %}"/>
+                {% if bad_details %}
+                    <p><strong>Tu usuario y/o contraseña fieron incorrectas!</strong></p>
+                {% elif disabled_account %}
+                    <p><strong>Tu cuenta esta desactivada; no podemos loguearte aun!</strong></p>
+                {% endif %}
+
+                <input style="width: auto" type="email" placeholder="Usuario" name="username" required/>
+
+                <input type="password" placeholder="Contraseña" name="password" required/>
+
+
+                <input type="submit" class="boton-login" value="Ingresar"/>
+            </form>
+            <a href="{% url "register" %}" class="registro">Registrarme</a>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/less.min.js' %}"></script>
+    <link rel="stylesheet/less" type="text/css" href="{% static 'css/bootstrap-datetimepicker.less' %}">
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="trapecio contenido-registro" id="cuadro-contenido">
+
+
+        <div class="login registro">
+            <div class="logo">
+                <img src="{% static 'iconos/logo.svg' %}">
+            </div>
+            <p class="titulo">Entra gratuitamente a nuestra Red Ditam.
+                <br/>Registrarse es fácil y rápido
+            </p>
+
+            <form id="user_form" class="formulario-registro" method="post"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in user_form %}
+                    {{ field }}
+
+                {% endfor %}
+                <input id="id_password_reescribe" type="password" placeholder="Reescribe tu contraseña"
+                       class="contrasena" onblur="verificar_contraseñas()">
+                {% for field in profile_form %}
+                    {{ field }}
+
+                {% endfor %}
+                <input class="boton-login" type="submit" name="submit" value="Registrarme"/>
+            </form>
+            <div id="contraseñas-dif"
+                 class="alert alert-danger alert-dismissible hidden" role="alert">
+                <button type="button" class="close"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#fecha').datetimepicker({
+            pickTime: false
+        });
+    });
+    $('#id_password').attr('placeholder', 'Contraseña');
+    $('#id_password').attr('onblur', 'verificar_contraseñas()');
+
+    function verificar_contraseñas() {
+        var contraseña = $('#id_password').val();
+        var reescribe_contraseña = $('#id_password_reescribe').val();
+        if (contraseña != reescribe_contraseña) {
+            $('#contraseñas-dif').removeClass('hidden');
+        } else {
+            $('#contraseñas-dif').addClass('hidden');
+        }
+    }
+
+    $('#user_form').submit(function verificar_contraseñas_submit(e) {
+        var contraseña = $('#id_password').val();
+        var reescribe_contraseña = $('#id_password_reescribe').val();
+        if (contraseña != reescribe_contraseña) {
+            $('#contraseñas-dif').removeClass('hidden');
+            e.preventDefault();
+        } else {
+            $('#contraseñas-dif').addClass('hidden');
+        }
+
+    });
+
+    $('.close').click(function(){
+        $('#contraseñas-dif').addClass('hidden');
+    });
+
+</script>
+</body>
+</html>

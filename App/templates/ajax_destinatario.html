@@ -1,0 +1,4 @@
+{% load static from staticfiles %}
+
+<p class="destinatario">{{ destinatario.first_name }}<a href="#"><span class="glyphicon glyphicon-remove"></span></a></p>
+<input  name="destinatario" type="hidden" value="{{ destinatario.pk }}">

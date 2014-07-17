@@ -1,0 +1,14 @@
+{% load static from staticfiles %}
+{% for i in lista %}
+<li>
+	<a href="{% url "ajax_destinatario" i.destinatario.pk %}" class="destino">
+		<div class="descripcion-destinatario">
+			<div class="avatar">
+                <img class="img-avatar" src="{{ i.foto.imagen.url }}" alt="">
+            </div>
+            <p class="nombre">{{ i.destinatario.first_name }}</p>
+		</div>
+	</a>
+</li>
+{% endfor %}
+<script src="{% static "js/image-crop.js" %}"></script>

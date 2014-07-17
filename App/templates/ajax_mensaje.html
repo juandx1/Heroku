@@ -1,0 +1,15 @@
+	<div class="asunto-msg">
+					{{ mensaje.asunto }}
+				</div>
+				<div class="texto-msg">
+					{{ mensaje.contenido }}
+				</div>
+				<div class="opciones-msg">
+					<ul class="nav navbar-nav">
+
+						<li><a href="{% url "eliminar_mensaje" mensaje.pk %}">Eliminar</a></li>
+						<li><a href="{% url "ver_usuario" mensaje.de.pk %}">Ver Perfil</a></li>
+
+					</ul>
+				</div>
+    </div>

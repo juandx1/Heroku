@@ -1,0 +1,26 @@
+{% load static from staticfiles %}
+<div class="comentador" id="{{ comentario.id }}">
+    <div class="btn-group pull-right">
+        <button type="button" class="btn btn-xs dropdown-toggle pull-right" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a class="elimi
+                                nar-comentario" href="{% url "eliminar_comentario" comentario.id %}">Eliminar</a></li>
+        </ul>
+    </div>
+    <div class="div-avatar">
+        {% if foto == 1 %}
+            <img class="avatar" src="{% static 'images/perfil-hombre.svg' %}"/>
+        {% else %}
+            <img class="avatar" src="{% static foto.imagen.url %}"/>
+        {% endif %}
+    </div>
+
+    <a class="autor" href="#">{{ comentario.usuario.first_name }}</a>
+
+    <p class="fecha">{{ comentario.fecha_publicacion }}</p>
+
+    <p class="texto-comment">{{ comentario.contenido }}</p>
+</div>
+<script src="{% static "js/image-crop-ajax.js" %}"></script>

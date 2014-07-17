@@ -1,0 +1,38 @@
+{% load static from staticfiles %}
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="glyphicon glyphicon-align-justify" style="color: #fff"></span>
+            </button>
+            <a id="logo" class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'iconos/logo.svg' %}"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'perfil' %}"><img src="{% static 'iconos/perfil-hover.svg' %}">Mi Perfil</a></li>
+                <li><a href="#"><img src="{% static 'iconos/noticias-hover.svg' %}">Noticias</a></li>
+                <li class="dropdown" id="mensajes"><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static 'iconos/mensajes-hover.svg' %}">Mensajes</a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'nuevo_mensaje' %}">Nuevo Mensaje</a></li>
+                        <li><a href="{% url 'mensajes' %}">Recibidos<span class="badge">{{ mensajes_no_visto }}</span></a></li>
+                        <li><a href="{% url 'enviados' %}">Enviados</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" id="solicitudes"><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static 'iconos/solicitudes.svg' %}">Solicitudes</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'solicitud_amistad' %}">Pendientes<span class="badge">{{ aceptar_amistad }}</span></a></li>
+                        <li><a href="{% url 'invitacion_pendiente' %}">Enviadas</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="{% static 'iconos/ministro-hover.svg' %}">Mi Iglesia</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="divider"></li>
+                <li id="cerrar-sesion"><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span>Cerrar Sesión</a></li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+    </div>
+</nav>

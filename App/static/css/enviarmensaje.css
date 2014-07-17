@@ -1,0 +1,221 @@
+body {
+  background-color: #eaeaea;
+}
+.navbar {
+  position: static;
+}
+.contenedor {
+  width: 80%;
+}
+.contenedor .columna-destinatarios {
+  padding-left: 0;
+  padding-right: 0;
+}
+.contenedor .columna-destinatarios .div-busqueda {
+  padding: 10px;
+  background-color: rgba(6,13,30,0.9);
+  border-bottom: 1px solid #5b748f;
+  width: 100%;
+}
+.contenedor .columna-destinatarios .nav-destinatarios {
+  background-color: rgba(6,13,30,0.9);
+}
+.contenedor .columna-destinatarios .nav-destinatarios li {
+  margin-top: 0px;
+}
+.contenedor .columna-destinatarios .nav-destinatarios li a {
+  border-bottom: 1px solid #5b748f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.contenedor .columna-destinatarios .nav-destinatarios li a:hover {
+  background-color: #dea03c;
+}
+.contenedor .columna-destinatarios .nav-destinatarios li a .descripcion-destinatario {
+  height: 42px;
+  position: relative;
+  width: 100%;
+}
+.contenedor .columna-destinatarios .nav-destinatarios li a .descripcion-destinatario .avatar {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  float: left;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 40px;
+}
+.contenedor .columna-destinatarios .nav-destinatarios li a .descripcion-destinatario .nombre {
+  color: #fff;
+  font-family: 'Calibri';
+  position: absolute;
+  font-size: 18px;
+  bottom: 0px;
+  left: 50px;
+}
+.contenedor .div-mensaje {
+  border: 1px solid rgba(128,128,128,0.3);
+  padding: 0px;
+  background-color: #fff;
+}
+.contenedor .div-mensaje .destinatarios-msg {
+  border-bottom: 1px solid rgba(128,128,128,0.3);
+  color: rgba(128,128,128,0.9);
+  font-family: 'Calibri';
+  font-size: 20px;
+  padding: 5px;
+}
+.contenedor .div-mensaje .destinatarios-msg .destinatario {
+  background-color: rgba(128,128,128,0.7);
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 6px;
+}
+.contenedor .div-mensaje .destinatarios-msg .destinatario a {
+  color: #fff;
+  margin-left: 4px;
+}
+.contenedor .div-mensaje .destinatarios-msg .destinatario a:hover {
+  color: #000;
+}
+.contenedor .div-mensaje .destinatarios-msg .destinatario a span {
+  font-size: 12px;
+}
+.contenedor .div-mensaje .destinatarios-msg .destinatarios {
+  margin: 0px;
+  color: #dea03c;
+  display: inline-block;
+}
+.contenedor .div-mensaje .asunto-msg {
+  border-bottom: 1px solid rgba(128,128,128,0.3);
+  color: rgba(128,128,128,0.9);
+  font-family: 'Calibri';
+  font-size: 20px;
+  padding: 5px;
+}
+.contenedor .div-mensaje .asunto-msg .asunto {
+  border: 0px;
+  outline: none;
+  width: 80%;
+}
+.contenedor .div-mensaje .asunto-msg p {
+  display: inline-block;
+  margin: 0px;
+  color: #dea03c;
+}
+.contenedor .div-mensaje .texto-msg {
+  font-family: 'Calibri';
+  font-size: 1.2em;
+  padding: 15px;
+}
+.contenedor .div-mensaje .texto-msg .mensaje {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 0px;
+}
+.contenedor .div-mensaje .opciones-msg {
+  font-family: 'Calibri';
+  border-top: 1px solid rgba(128,128,128,0.3);
+}
+.contenedor .div-mensaje .opciones-msg .nav {
+  float: none;
+  margin: 0px;
+}
+.contenedor .div-mensaje .opciones-msg .nav li {
+  float: right;
+}
+.contenedor .div-mensaje .opciones-msg .nav li a {
+  padding: 8px;
+  border-left: 1px solid rgba(128,128,128,0.3);
+}
+.img-alto {
+  bottom: -100%;
+  height: auto;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: 100%;
+}
+.img-ancho {
+  bottom: -100%;
+  height: 100%;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: auto;
+}
+.modal .modal-dialog .modal-content {
+  border-radius: 0px;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  background-color: #060d1e;
+  border-bottom: none;
+  color: #fff;
+  font-family: 'Champagne et Limousines';
+  padding: 10px;
+}
+.modal .modal-dialog .modal-content .modal-header .close {
+  color: #fff;
+  font-size: 30px;
+  opacity: 1;
+}
+.modal .modal-dialog .modal-content .modal-header .close:hover {
+  color: #ccc;
+  opacity: 1;
+}
+.modal .modal-dialog .modal-content .modal-header .modal-title {
+  font-size: 22px;
+}
+.modal .modal-dialog .modal-content .modal-body .formulario #asunto {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-indent: 7px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.modal .modal-dialog .modal-content .modal-body .formulario #asunto:focus {
+  -moz-box-shadow: 0 0 12px #808080;
+  -webkit-box-shadow: 0 0 12px #808080;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 12px #808080;
+  outline: 0;
+}
+.modal .modal-dialog .modal-content .modal-body textarea {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  resize: none;
+  width: 100%;
+}
+.modal .modal-dialog .modal-content .modal-body textarea:focus {
+  -moz-box-shadow: 0 0 12px #808080;
+  -webkit-box-shadow: 0 0 12px #808080;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 12px #808080;
+  outline: 0;
+}
+.modal .modal-dialog .modal-content .modal-body label {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+  }
+  .contenedor .columna-mensajes {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}

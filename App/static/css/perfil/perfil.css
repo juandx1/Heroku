@@ -1,0 +1,376 @@
+@font-face {
+  font-family: 'Damion';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Damion'), url("http://themes.googleusercontent.com/static/fonts/damion/v4/qyDz-al48wZmmi6RcQn1Mg.woff") format('woff');
+}
+body {
+  background-color: rgba(0,0,0,0.04);
+}
+body .comentarios {
+  display: table;
+  margin: 7px auto 0 auto;
+  max-width: 980px;
+  width: 100%;
+}
+body .comentarios .comentario {
+  margin-bottom: 15px;
+  border: 1px solid rgba(128,128,128,0.5);
+}
+body .comentarios .comentario .comentador {
+  border-bottom: 1px solid rgba(128,128,128,0.5);
+  background: #fff;
+  padding-top: 10px;
+}
+body .comentarios .comentario .comentador:hover .btn-group {
+  display: block;
+}
+body .comentarios .comentario .comentador .div-avatar {
+  border: 1px solid #060d1e;
+  border-radius: 50%;
+  float: left;
+  height: 42px;
+  margin: 0px 8px 0px 15px;
+  overflow: hidden;
+  position: relative;
+  width: 42px;
+}
+body .comentarios .comentario .comentador .autor {
+  text-decoration: none;
+}
+body .comentarios .comentario .comentador .btn-group {
+  top: 5px;
+  left: -10px;
+  display: none;
+}
+body .comentarios .comentario .comentador .btn-group .btn {
+  background-color: transparent;
+}
+body .comentarios .comentario .comentador .fecha {
+  color: #000;
+  font-family: Calibri;
+  margin-left: 7px;
+  top: 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  width: 97%;
+  padding-bottom: 10px;
+}
+body .comentarios .comentario .comentador .texto-comment {
+  padding: 0px 10px 0px 10px;
+  word-wrap: break-word;
+}
+body .comentarios .comentario .comentar {
+  background: #fff;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+body .comentarios .comentario .comentar .texto-comentario-usuarios {
+  background: transparent;
+  border: transparent;
+  font-family: Calibri;
+  font-size: 16px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+}
+body .comentarios .comentario .comentar button {
+  margin: 5px;
+  outline: none;
+}
+body .comentarios .comentario .descripcion {
+  background: #060d1e;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+body .comentarios .comentario .descripcion .autor-destinatario {
+  margin-left: 73px;
+  position: absolute;
+  top: 8px;
+}
+body .comentarios .comentario .descripcion .autor-destinatario .autor {
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+body .comentarios .comentario .descripcion .autor-destinatario span {
+  color: #fff;
+}
+body .comentarios .comentario .descripcion label {
+  color: #fff;
+  font-family: Calibri;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 5px 0px 5px 10px;
+}
+body .comentarios .comentario .descripcion .div-avatar {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  height: 42px;
+  margin: 0px 8px 0px 15px;
+  overflow: hidden;
+  position: relative;
+  width: 42px;
+}
+body .comentarios .comentario .descripcion .btn-group {
+  top: -33px;
+  left: -10px;
+}
+body .comentarios .comentario .descripcion .btn-group .btn {
+  background-color: transparent;
+  color: #fff;
+}
+body .comentarios .comentario .descripcion .fecha {
+  color: #fff;
+  display: inline-block;
+  font-family: Calibri;
+  left: 73px;
+  position: absolute;
+  top: 30px;
+}
+body .comentarios .comentario .texto-comentario {
+  background: #fff;
+  border-bottom: 1px solid rgba(128,128,128,0.5);
+  padding: 10px;
+  text-align: center;
+}
+body .comentarios .comentario .texto-comentario div {
+  text-align: left;
+}
+body .comentarios .comentario .texto-comentario button {
+  outline: none;
+}
+body .comentarios .comentario .texto-comentario .estado {
+  background: transparent;
+  border: transparent;
+  font-family: Calibri;
+  font-size: 16px;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+  width: 100%;
+}
+body .comentarios .div-sobre-mi {
+  border: 1px solid rgba(128,128,128,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
+}
+body .comentarios .div-sobre-mi .descripcion {
+  padding: 5px;
+  background: #060d1e;
+  color: #fff;
+  font-family: 'Calibri';
+  font-size: 1.2em;
+}
+body .comentarios .div-sobre-mi .info {
+  font-family: 'Calibri';
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+}
+body .comentarios .div-sobre-mi .info p {
+  display: inline-block;
+  margin: 0px;
+  color: #808080;
+}
+body .comentarios .div-fotos {
+  border: 1px solid rgba(128,128,128,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
+}
+body .comentarios .div-fotos .descripcion {
+  padding: 5px;
+  background: #060d1e;
+}
+body .comentarios .div-fotos .descripcion a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Calibri;
+  font-size: 1.2em;
+}
+body .comentarios .div-fotos .fotos {
+  width: 100%;
+}
+body .comentarios .div-fotos .fotos .foto {
+  border: 3px solid #fff;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  height: 136px;
+  margin: 8px 5px 8px 5px;
+  overflow: hidden;
+  position: relative;
+  width: 136px;
+}
+body .comentarios .div-amigos {
+  border: 1px solid rgba(128,128,128,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
+}
+body .comentarios .div-amigos .descripcion {
+  padding: 5px;
+  background: #060d1e;
+}
+body .comentarios .div-amigos .descripcion a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Calibri;
+  font-size: 1.2em;
+}
+body .comentarios .div-amigos .amigos {
+  width: 100%;
+}
+body .comentarios .div-amigos .amigos .amigo {
+  border: 3px solid #fff;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  height: 89px;
+  margin: 8px 5px 8px 5px;
+  overflow: hidden;
+  position: relative;
+  width: 89px;
+}
+body .comentarios .div-amigos .amigos .amigo .nombre {
+  -moz-transition: all 0.4s;
+  background-color: rgba(0,0,0,0.4);
+  font-family: 'Segoe UI';
+  height: 100%;
+  left: 100%;
+  position: absolute;
+  top: 0px;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  color: #fff;
+}
+.contenedor {
+  margin-bottom: 15px;
+  margin-top: 55px;
+  text-align: center;
+}
+.contenedor .portada {
+  display: inline-block;
+  max-width: 980px;
+  width: 100%;
+  position: relative;
+}
+.contenedor .portada .cabecera {
+  display: inline-block;
+  max-width: 980px;
+  position: relative;
+  width: 100%;
+}
+.contenedor .portada .cabecera .back-perfil {
+  background-color: rgba(0,0,0,0.5);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 35%;
+  z-index: 1;
+}
+.contenedor .portada .cabecera .back-perfil .foto-nombre {
+  height: auto;
+  position: relative;
+  top: 20%;
+}
+.contenedor .portada .cabecera .back-perfil .foto-nombre .div-foto-perfil {
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+  height: 160px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 160px;
+}
+.contenedor .portada .cabecera .back-perfil .foto-nombre .nombre-perfil {
+  color: #fff;
+  font-family: 'Damion';
+  font-size: 23px;
+  margin-top: 5px;
+}
+.contenedor .portada .cabecera .foto-portada {
+  height: auto;
+  max-width: 980px;
+  width: 100%;
+}
+.contenedor .portada .opciones {
+  background: rgba(6,13,30,0.9);
+  bottom: 0px;
+  position: absolute;
+  width: 65%;
+}
+.contenedor .portada .opciones a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Calibri';
+}
+.contenedor .portada .opciones a:hover {
+  background: #dea03c !important;
+}
+.contenedor .portada .opciones a img {
+  width: 20px;
+}
+.img-alto {
+  bottom: -100%;
+  height: auto !important;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: 100% !important;
+}
+.img-ancho {
+  bottom: -100%;
+  height: 100% !important;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: auto !important;
+}
+@media screen and (max-width: 768px) {
+  .contenedor .portada .cabecera .back-perfil .foto-nombre .div-foto-perfil {
+    height: 105px;
+    width: 105px;
+  }
+  .contenedor .portada .cabecera .back-perfil .foto-nombre .nombre-perfil {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contenedor {
+    margin-top: 0px;
+  }
+  .contenedor .portada .cabecera {
+    height: 130px;
+  }
+  .contenedor .portada .cabecera .back-perfil {
+    background: rgba(6,13,30,0.9);
+    width: 100%;
+    position: static;
+  }
+  .contenedor .portada .cabecera .back-perfil .foto-nombre {
+    width: 210px;
+    margin: 0 auto;
+    top: 15px;
+  }
+  .contenedor .portada .cabecera .back-perfil .foto-nombre .div-foto-perfil {
+    height: 90px;
+    width: 90px;
+  }
+  .contenedor .portada .cabecera .back-perfil .foto-nombre .nombre-perfil {
+    font-size: 1em;
+  }
+  .contenedor .portada .cabecera .foto-portada {
+    display: none;
+  }
+  .contenedor .portada .opciones {
+    width: 100%;
+    position: static;
+  }
+}

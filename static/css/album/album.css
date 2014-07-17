@@ -1,0 +1,19 @@
+.eliminar-album {
+    margin-top: 34px;
+    background-color: #dea03c;
+    padding: 5px 60px 5px 70px;
+    float: right;
+    background-image: url("../../iconos/close.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 90% center;
+}
+
+a .eliminar-album {
+    color: white;
+    font-family: 'Segoe UI';
+}
+
+a .eliminar-album:hover{
+    text-decoration: underline;
+}

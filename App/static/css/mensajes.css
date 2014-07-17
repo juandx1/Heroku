@@ -1,0 +1,226 @@
+body {
+  background-color: #eaeaea;
+}
+.contenedor {
+  width: 80%;
+  margin-top: 55px;
+}
+.contenedor .columna-mensajes {
+  padding-left: 0;
+  padding-right: 0;
+}
+.contenedor .columna-mensajes .nav-mensajes {
+  background-color: rgba(6,13,30,0.9);
+}
+.contenedor .columna-mensajes .nav-mensajes li {
+  margin-top: 0px;
+}
+.contenedor .columna-mensajes .nav-mensajes li a {
+  border-bottom: 1px solid #5b748f;
+}
+.contenedor .columna-mensajes .nav-mensajes li a:hover {
+  background-color: #dea03c;
+}
+.contenedor .columna-mensajes .nav-mensajes li a .descripcion-mensaje {
+  height: 52px;
+  position: relative;
+  width: 100%;
+}
+.contenedor .columna-mensajes .nav-mensajes li a .descripcion-mensaje .avatar {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  float: left;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  width: 50px;
+}
+.contenedor .columna-mensajes .nav-mensajes li a .descripcion-mensaje .nombre {
+  color: #fff;
+  float: left;
+  font-family: 'Calibri';
+  margin-left: 6px;
+}
+.contenedor .columna-mensajes .nav-mensajes li a .descripcion-mensaje .fecha {
+  color: #fff;
+  float: right;
+  font-family: 'Calibri';
+}
+.contenedor .columna-mensajes .nav-mensajes li a .descripcion-mensaje .asunto {
+  color: #fff;
+  font-family: 'Calibri';
+  font-size: 16px;
+  font-weight: bold;
+  left: 55px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 25px;
+  white-space: nowrap;
+  width: 60%;
+}
+.contenedor .columna-mensajes .opciones {
+  background-color: rgba(6,13,30,0.9);
+  font-family: 'Calibri';
+}
+.contenedor .columna-mensajes .opciones border,
+.contenedor .columna-mensajes .opciones .nav {
+  float: none;
+  margin: 0px;
+}
+.contenedor .columna-mensajes .opciones border a,
+.contenedor .columna-mensajes .opciones .nav a {
+  color: #fff;
+  padding: 8px;
+}
+.contenedor .columna-mensajes .opciones border a:hover,
+.contenedor .columna-mensajes .opciones .nav a:hover {
+  color: rgba(6,13,30,0.9);
+}
+.contenedor .columna-mensajes .opciones border a span,
+.contenedor .columna-mensajes .opciones .nav a span {
+  margin-right: 4px;
+}
+.contenedor .columna-mensajes .nav-opciones-mensajes {
+  background-color: rgba(6,13,30,0.9);
+}
+.contenedor .columna-mensajes .nav-opciones-mensajes li {
+  margin-top: 0px;
+}
+.contenedor .columna-mensajes .nav-opciones-mensajes li a {
+  color: #fff;
+  border-bottom: 1px solid #5b748f;
+  line-height: 15px;
+}
+.contenedor .columna-mensajes .nav-opciones-mensajes li a:hover {
+  background-color: #dea03c;
+}
+.contenedor .div-mensaje {
+  border: 1px solid rgba(128,128,128,0.3);
+  padding: 0px;
+  background-color: #fff;
+}
+.contenedor .div-mensaje .asunto-msg {
+  border-bottom: 1px solid rgba(128,128,128,0.3);
+  color: rgba(128,128,128,0.9);
+  font-family: 'Calibri';
+  font-size: 20px;
+  padding: 5px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contenedor .div-mensaje .texto-msg {
+  font-family: 'Calibri';
+  font-size: 1em;
+  padding: 15px;
+  word-wrap: break-word;
+}
+.contenedor .div-mensaje .opciones-msg {
+  font-family: 'Calibri';
+  border-top: 1px solid rgba(128,128,128,0.3);
+}
+.contenedor .div-mensaje .opciones-msg .nav {
+  float: none;
+  margin: 0px;
+}
+.contenedor .div-mensaje .opciones-msg .nav li {
+  float: right;
+}
+.contenedor .div-mensaje .opciones-msg .nav li a {
+  padding: 8px;
+  border-left: 1px solid rgba(128,128,128,0.3);
+}
+.img-alto {
+  bottom: -100%;
+  height: auto;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: 100%;
+}
+.img-ancho {
+  bottom: -100%;
+  height: 100%;
+  left: -100%;
+  margin: auto;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  width: auto;
+}
+.modal .modal-dialog .modal-content {
+  border-radius: 0px;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  background-color: #060d1e;
+  border-bottom: none;
+  color: #fff;
+  font-family: 'Champagne et Limousines';
+  padding: 10px;
+}
+.modal .modal-dialog .modal-content .modal-header .close {
+  color: #fff;
+  font-size: 30px;
+  opacity: 1;
+}
+.modal .modal-dialog .modal-content .modal-header .close:hover {
+  color: #ccc;
+  opacity: 1;
+}
+.modal .modal-dialog .modal-content .modal-header .modal-title {
+  font-size: 22px;
+}
+.modal .modal-dialog .modal-content .modal-body .formulario #asunto {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-indent: 7px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.modal .modal-dialog .modal-content .modal-body .formulario #asunto:focus {
+  -moz-box-shadow: 0 0 12px #808080;
+  -webkit-box-shadow: 0 0 12px #808080;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 12px #808080;
+  outline: 0;
+}
+.modal .modal-dialog .modal-content .modal-body textarea {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  resize: none;
+  width: 100%;
+}
+.modal .modal-dialog .modal-content .modal-body textarea:focus {
+  -moz-box-shadow: 0 0 12px #808080;
+  -webkit-box-shadow: 0 0 12px #808080;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 12px #808080;
+  outline: 0;
+}
+.modal .modal-dialog .modal-content .modal-body label {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+  }
+  .contenedor .columna-mensajes {
+    height: 364px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .contenedor .div-mensaje {
+    margin-top: 20px;
+  }
+}

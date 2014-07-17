@@ -1,0 +1,13 @@
+.descripcion-evento{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.55);
+    color: #ffffff;
+    text-align: left;
+    padding: 2%;
+}
+
+.descripcion-evento div{
+    margin-top: 1%;
+}
