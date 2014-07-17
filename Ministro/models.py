@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from App.models import *
 
 # Create your models here.
@@ -9,8 +8,7 @@ class Cuenta(models.Model):
         ('P', 'Pasivo'),
         ('C', 'Capital'),
     )
-    tipo=models.CharField(max_length=1, choices=TIPO)   
-=======
+    tipo=models.CharField(max_length=1, choices=TIPO)
 
 # Create your models here.
 
@@ -27,4 +25,4 @@ class Usuario_Ministro(models.Model):
     bautizado = models.BooleanField(default=False)
     ciudad = models.CharField(max_length=200, blank=True, null=True)
     pais = models.CharField(max_length=200, blank=True, null=True)
->>>>>>> origin/master
+
