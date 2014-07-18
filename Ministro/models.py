@@ -21,7 +21,7 @@ class Concepto(models.Model):
     nombre = models.CharField(max_length=100)
     grupo = models.ForeignKey(Grupo)
 
-class Registro(models):
+class Registro(models.Model):
     numero=models.IntegerField()
     fecha=models.DateField()
     comentario=models.CharField(max_length=140)
