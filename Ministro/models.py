@@ -47,6 +47,7 @@ class Usuario_Ministro(models.Model):
     ciudad = models.CharField(max_length=200, blank=True, null=True)
     pais = models.CharField(max_length=200, blank=True, null=True)
 
+
 class Campo_Personalizado(models.Model):
     nombre = models.CharField(max_length=100)
     iglesia = models.ForeignKey(Iglesia)
