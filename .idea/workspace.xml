@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50e25002-7de9-428f-bd83-469cd3ce0773" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Juan Manuel\Documents\GitHub\Heroku\db.sqlite3" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ministro/admin.py" afterPath="$PROJECT_DIR$/Ministro/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ministro/models.py" afterPath="$PROJECT_DIR$/Ministro/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Proyecto/settings.py" afterPath="$PROJECT_DIR$/Proyecto/settings.py" />
+    <list default="true" id="50e25002-7de9-428f-bd83-469cd3ce0773" name="Default" comment="dasdsaasd">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Heroku.iws" />
@@ -31,7 +28,18 @@
     <favorites_list name="Heroku" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="context_processors.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/context_processors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34170854" vertical-offset="0" max-vertical-offset="398">
+              <caret line="8" column="94" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -48,8 +56,8 @@
         <option value="$PROJECT_DIR$/Proyecto/settings.py" />
         <option value="$PROJECT_DIR$/Ministro/models.py" />
         <option value="$PROJECT_DIR$/Proyecto/urls.py" />
-        <option value="$PROJECT_DIR$/App/context_processors.py" />
         <option value="$PROJECT_DIR$/App/functions.py" />
+        <option value="$PROJECT_DIR$/App/context_processors.py" />
       </list>
     </option>
   </component>
@@ -101,6 +109,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Heroku" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Heroku" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Heroku" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ministro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,26 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proyecto/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34170854" vertical-offset="357" max-vertical-offset="2023">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4874372" vertical-offset="2866" max-vertical-offset="3264">
           <caret line="182" column="60" selection-start-line="182" selection-start-column="60" selection-end-line="182" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/context_processors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34170854" vertical-offset="0" max-vertical-offset="398">
-          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -557,6 +563,22 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9396985" vertical-offset="867" max-vertical-offset="2023">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/context_processors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34170854" vertical-offset="0" max-vertical-offset="398">
+          <caret line="8" column="94" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="94" />
+          <folding />
         </state>
       </provider>
     </entry>
