@@ -29,8 +29,6 @@ class Registro(models.Model):
     retiro=models.IntegerField()
 
 
-
-
 # Create your models here.
 
 class Usuario_Ministro(models.Model):
@@ -61,4 +59,7 @@ class Rango(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=500)
     iglesia = models.ForeignKey(Iglesia)
+
+class Rango_Usuairio(models.Model):
     usuario = models.ForeignKey(Usuario_Ministro)
+    rango = models.ForeignKey(Rango)

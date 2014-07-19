@@ -12,8 +12,10 @@ class Contenido_Campo_Admin(admin.ModelAdmin):
     list_display = ('contenido','campo','usuario',)
 
 class Rango_Admin(admin.ModelAdmin):
-    list_display = ('nombre','descripcion','iglesia','usuario')
+    list_display = ('nombre','descripcion','iglesia')
 
+class Rango_Usuario_Admin(admin.ModelAdmin):
+    list_display = ('rango','usuario')
 
 admin.site.register(Usuario_Ministro,Usuario_Ministro_Admin)
 admin.site.register(Campo_Personalizado,Campo_Personalizado_Admin)
